@@ -1,27 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Xml.Serialization;
 using Lab2.Model;
 using String = System.String;
 
-namespace Lab2
+namespace Lab2.View
 {
-    /// <summary>
-    /// Логика взаимодействия для OpenFileWindow.xaml
-    /// </summary>
     public partial class OpenFileWindow : Window
     {
         private static readonly MainWindow MainWindow = (MainWindow)System.Windows.Application.Current.MainWindow;
@@ -41,8 +27,9 @@ namespace Lab2
 
             if (!File.Exists(filePath.Text))
             {
-                MessageBox.Show($"Файл по пути {filePath.Text} не найден!", "Ошибка", MessageBoxButton.OK);
-                filePath.Text = String.Empty;
+                this.Close();
+                var fileNotFoundWindow = new FileNotFoundMessageWindow();
+                fileNotFoundWindow.Show();
                 return;
             }
 
@@ -56,7 +43,7 @@ namespace Lab2
             }
 
             this.Close();
-            MainWindow.MainWindowFrame.NavigationService.Navigate(new Uri("FullDataGrid.xaml", UriKind.Relative));
+            MainWindow.MainWindowFrame.NavigationService.Navigate(new Uri("View/FullDataGrid.xaml", UriKind.Relative));
         }
     }
 }

@@ -1,21 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Lab2.Model;
+using Lab2.View;
 
 namespace Lab2
 {
@@ -28,7 +17,7 @@ namespace Lab2
         public MainWindow()
         {
             InitializeComponent();
-            _timer = new Timer(UpdateByTimer, null, 0, TimeSpan.FromHours(3).Milliseconds);
+            
         }
 
         private void FullDataGridView_Click(Object sender, RoutedEventArgs e)
@@ -38,7 +27,7 @@ namespace Lab2
 
         private void ShortDataGridView_Click(Object sender, RoutedEventArgs e)
         {
-            MainWindowFrame.NavigationService.Navigate(new Uri("ShortDataGrid.xaml", UriKind.Relative));
+            MainWindowFrame.NavigationService.Navigate(new Uri("View/ShortDataGrid.xaml", UriKind.Relative));
         }
 
         private void OpenFileWindow_Click(Object sender, RoutedEventArgs e)
@@ -53,7 +42,7 @@ namespace Lab2
             var webClient = new WebClient();
             webClient.DownloadFile(new Uri(link), "thrlist.xlsx");
             Data = new ObservableCollection<Data>(Parser.EnumerateFullData("thrlist.xlsx"));
-            MainWindowFrame.NavigationService.Navigate(new Uri("FullDataGrid.xaml", UriKind.Relative));
+            MainWindowFrame.NavigationService.Navigate(new Uri("View/FullDataGrid.xaml", UriKind.Relative));
         }
 
         private void SaveFile_Click(Object sender, RoutedEventArgs e)
@@ -78,8 +67,12 @@ namespace Lab2
             var webClient = new WebClient();
             webClient.DownloadFile(new Uri(link), "thrlist.xlsx");
             FilePath = "thrlist.xlsx";
-            var updateDataWindow = new UpdateDataWindow();
-            updateDataWindow.Show();
+        }
+
+        private void MainWindow_Loaded(Object sender, EventArgs e)
+        {
+            var startMenuWindow = new StartMenuWindow();
+            startMenuWindow.Show();
         }
     }
 }

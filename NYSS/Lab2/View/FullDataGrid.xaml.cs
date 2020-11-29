@@ -2,35 +2,26 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Lab2.Model;
+using Page = System.Windows.Controls.Page;
 
-namespace Lab2
+namespace Lab2.View
 {
-    public partial class ShortDataGrid : Page
+    public partial class FullDataGrid : Page
     {
         private static readonly MainWindow MainWindow = (MainWindow)System.Windows.Application.Current.MainWindow;
-        private ObservableCollection<ShortData> _collection;
-        private List<ShortData> _pageContent;
-        private const Int32 RowsPerPage = 30;
+        private ObservableCollection<Data> _collection;
+        private List<Data> _pageContent;
+        private const Int32 RowsPerPage = 15;
         private Int32 _currentPage = 1;
         private Int32 PagesCount
             => _collection.Count % RowsPerPage == 0
             ? _collection.Count / RowsPerPage
             : _collection.Count / RowsPerPage + 1;
 
-
-        public ShortDataGrid()
+        
+        public FullDataGrid()
         {
             InitializeComponent();
         }
@@ -41,12 +32,12 @@ namespace Lab2
                 .Take(RowsPerPage).ToList();
             _currentPage = pageNum;
             currentPage.Text = _currentPage.ToString();
-            ShortDataTable.ItemsSource = _pageContent;
+            FullDataTable.ItemsSource = _pageContent;
         }
 
         private void NextPageButton_Click(Object sender, RoutedEventArgs e)
         {
-            _currentPage = Int32.Parse(currentPage.Text);
+            _currentPage= Int32.Parse(currentPage.Text);
             if (_currentPage < PagesCount)
                 GeneratePageContent(_currentPage + 1);
         }
@@ -79,9 +70,9 @@ namespace Lab2
             GeneratePageContent(_currentPage);
         }
 
-        private void ShortDataGrid_Initialized(Object sender, EventArgs e)
+        private void FullDataGrid_Initialized(Object sender, EventArgs e)
         {
-            _collection = new ObservableCollection<ShortData>(Parser.EnumerateShortFromFullData(MainWindow.Data));
+            _collection = MainWindow.Data;
             totalPages.Text = PagesCount.ToString();
             currentPage.Text = _currentPage.ToString();
             GeneratePageContent(_currentPage);

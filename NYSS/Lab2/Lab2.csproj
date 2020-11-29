@@ -72,36 +72,46 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BadComparisonPage.xaml.cs">
+    <Compile Include="View\BadComparisonPage.xaml.cs">
       <DependentUpon>BadComparisonPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ComparisonPage.xaml.cs">
+    <Compile Include="View\ComparisonPage.xaml.cs">
       <DependentUpon>ComparisonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FileNotFoundMessageWindow.xaml.cs">
+      <DependentUpon>FileNotFoundMessageWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\ComparedData.cs" />
     <Compile Include="Model\ComparisonItem.cs" />
     <Compile Include="Model\DataComparator.cs" />
-    <Compile Include="OpenFileWindow.xaml.cs">
+    <Compile Include="View\OpenFileWindow.xaml.cs">
       <DependentUpon>OpenFileWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SaveFileWindow.xaml.cs">
+    <Compile Include="View\SaveFileWindow.xaml.cs">
       <DependentUpon>SaveFileWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ShortDataGrid.xaml.cs">
+    <Compile Include="View\ShortDataGrid.xaml.cs">
       <DependentUpon>ShortDataGrid.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UpdateDataWindow.xaml.cs">
+    <Compile Include="View\StartMenuWindow.xaml.cs">
+      <DependentUpon>StartMenuWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UpdateDataWindow.xaml.cs">
       <DependentUpon>UpdateDataWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="BadComparisonPage.xaml">
+    <Page Include="View\BadComparisonPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ComparisonPage.xaml">
+    <Page Include="View\ComparisonPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FullDataGrid.xaml">
+    <Page Include="View\FileNotFoundMessageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FullDataGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -113,26 +123,30 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FullDataGrid.xaml.cs">
+    <Compile Include="View\FullDataGrid.xaml.cs">
       <DependentUpon>FullDataGrid.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="OpenFileWindow.xaml">
+    <Page Include="View\OpenFileWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SaveFileWindow.xaml">
+    <Page Include="View\SaveFileWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ShortDataGrid.xaml">
+    <Page Include="View\ShortDataGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UpdateDataWindow.xaml">
+    <Page Include="View\StartMenuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UpdateDataWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -182,5 +196,6 @@
   <ItemGroup>
     <Resource Include="Images\shortView.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

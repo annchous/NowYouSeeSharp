@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Lab2" Height="700" Width="1200"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" Loaded="MainWindow_Loaded">
     <Grid>
         <Menu HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="300">
             <MenuItem Header="Меню" Height="33" Width="300" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14" Background="{x:Null}">

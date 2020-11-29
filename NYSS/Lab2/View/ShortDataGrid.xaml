@@ -1,4 +1,4 @@
-﻿<Page x:Class="Lab2.FullGrid"
+﻿<Page x:Class="Lab2.View.ShortDataGrid"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,20 +6,14 @@
       xmlns:local="clr-namespace:Lab2"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1200"
-      Title="FullDataGrid"
-      Background="#FFBEE0E4" Initialized="FullDataGrid_Initialized">
+      Title="ShortDataGrid"
+      Background="#FFBEE0E4" Initialized="ShortDataGrid_Initialized">
 
     <Grid>
-        <DataGrid Name="FullDataTable" DataContext="{Binding Source=_collection}"  AutoGenerateColumns="False" HorizontalAlignment="Left" Height="590" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="1186" IsReadOnly="True">
+        <DataGrid Name="ShortDataTable" DataContext="{Binding Source=_collection}"  AutoGenerateColumns="False" HorizontalAlignment="Left" Height="590" VerticalAlignment="Top" Width="1186" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Width="*" MaxWidth="50" CanUserSort="False" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="ID" Width="*" MaxWidth="100" CanUserSort="False" Binding="{Binding Path=Id}"/>
                 <DataGridTextColumn Header="Наименование угрозы" Width="*" CanUserSort="False" Binding="{Binding Path=Name}"/>
-                <DataGridTextColumn Header="Описание угрозы" Width="*" MinWidth="400" CanUserSort="False" Binding="{Binding Path=Description}"/>
-                <DataGridTextColumn Header="Источник угрозы" Width="*" CanUserSort="False" Binding="{Binding Path=Source}"/>
-                <DataGridTextColumn Header="Объект воздействия угрозы" Width="*" CanUserSort="False" Binding="{Binding Path=Target}"/>
-                <DataGridTextColumn Header="Нарушение конфиденциальности" Width="*" MaxWidth="100" CanUserSort="False" Binding="{Binding Path=ConfidentialityOffense}"/>
-                <DataGridTextColumn Header="Нарушение целостности" Width="*" MaxWidth="100" CanUserSort="False" Binding="{Binding Path=ContinuityOffense}"/>
-                <DataGridTextColumn Header="Нарушение доступности" Width="*" MaxWidth="100" CanUserSort="False" Binding="{Binding Path=AvailabilityOffense}"/>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Row="1" Orientation="Horizontal" Height="40" Margin="0,580,0,0">
